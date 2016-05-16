@@ -33,7 +33,11 @@ module.exports = {
             test: /\.scss$/,
             include: [path.resolve(__dirname, 'app', 'styles')],
             loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
-          }
+          },
+          {
+            test: /\.(eot|ttf|woff|woff2|otf)$/,
+            loader: 'file?name=assets/fonts/[name].[ext]'
+          },
         ]
     },
     plugins: [
