@@ -1,4 +1,10 @@
-.header {
+@import 'variables';
+
+@import '../../node_modules/foundation-sites/scss/foundation/components/grid';
+@import '../../node_modules/foundation-sites/scss/foundation/components/buttons';
+
+
+header {
   background-color: #36185F;
   color: white;
   text-align: center;
@@ -50,7 +56,7 @@
 }
 
 button:disabled {
-  opacity: 0.4; !important
+  opacity: 0.4 !important;
 }
 
 .button-primary-netlight {

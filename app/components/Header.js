@@ -24,25 +24,29 @@ class Header extends React.Component {
 
   render() {
 
-    return (<div className="row header">
-      <div className="six columns">
-        <a to="/">
-          <img className="logo u-max-full-width " src="./images/EPS_RGB_WHITE_10.png" />
-        </a>
-      </div>
-      <div className="six columns">
-        <div className="nav">
-            <Button
-                text="Add candidate"
-                type="nav-btn"
-                icon="fa fa-search"
-                handleClick = {this.handleClick}
-            />
+    return (
+      <header>
+        <div className="row">
+          <div className="column small-6">
+            <a to="/">
+              <img className="logo u-max-full-width " src="./assets/EPS_RGB_WHITE_10.png" />
+            </a>
+          </div>
+          <div className="column small-6">
+            <div className="nav">
+                <Button
+                    text="Add candidate"
+                    className="button"
+                    type="nav-btn"
+                    icon="fa fa-search"
+                    handleClick = {this.handleClick}
+                />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>);
+    </header>);
   }
- 
+
 }
 
 export default connect(
