@@ -41,24 +41,6 @@ header {
   max-height: 100px;
 }
 
-.nav {
-  white-space: nowrap;
-}
-
-.nav-btn {
-  display: inline-block;
-  margin: 5px;
-  background-color: #36185F;
-  color: white;
-  padding: 0 20px;
-}
-
-.nav-btn:hover, .nav-btn:focus {
-  background-color: #4f3079;
-  border-color: #bbb;
-  color: white;
-}
-
 button:disabled {
   opacity: 0.4 !important;
 }

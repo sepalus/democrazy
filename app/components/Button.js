@@ -1,6 +1,8 @@
 import React from 'react';
 var candidates;
 
+require('./button.scss');
+
 class Button extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,10 +12,10 @@ class Button extends React.Component {
 	}
 	render() {
 		return(
-			<button className={this.props.type} onClick={this.props.handleClick}> {this.props.text}
+			<button className="nl-button" onClick={this.props.handleClick}> {this.props.text}
 			</button>
 			);
-	}	
+	}
 }
 
 module.exports = Button;

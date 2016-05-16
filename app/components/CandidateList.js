@@ -3,80 +3,45 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import Candidate from './Candidate';
 
+require('./candidateList.scss');
 
-var candidates;
+class CandidateList extends React.Component {
 
-class CandidateList extends React.Component{
-	constructor() {
-		super();
-		this.state = {
-			candidates:false
-		};
-		
-	}
-	
-	componentDidMount() {
-      var self=this;
-      this.serverRequest = $.getJSON("http://localhost:3000/candidate", function(data) {
-  			candidates = data;
-  			self.setState({candidates:data});	
-		});
+	// componentDidMount() {
+  //     var self=this;
+  //     this.serverRequest = $.getJSON("http://localhost:3000/candidate", function(data) {
+  // 			candidates = data;
+  // 			self.setState({candidates:data});
+	// 	});
 
-     }
+    // addCandidate() {
+    // 	var newguy = {name:"mike", pitch:"i'm new", url:"http://fitmenover40.com/wp-content/uploads/2014/03/Guy-drinking-beer.jpg"};
+    //   candidates.push(newguy);
+    // }
 
-    addCandidate() {
-    	var newguy = {name:"mike", pitch:"i'm new", url:"http://fitmenover40.com/wp-content/uploads/2014/03/Guy-drinking-beer.jpg"};
-      candidates.push(newguy);
-    }
-
-	renderItems(isFirst) {
-			return _.map(candidates, function(candidate, index) {
-				return <Candidate key={index} name={candidate.name} pitch={candidate.pitch} url={candidate.url}/>
-			})
+	renderItems() {
+		return _.map(this.props.candidates, function(candidate, index) {
+			return <Candidate key={candidate.id} data={candidate} chosen={ index ===  1}/>
+		})
 	}
 
 	render() {
-		if (this.props.status == "voteAdded") {
-			{this.addCandidate()}
-		}
-		return(
-			<div className="container" >	
-				{this.renderItems(true)}
+		return (
+			<div className="candidates-container" >
+				{this.renderItems()}
 			</div>
 		)
-
 	}
-	
 }
-
-
-let styles = {
-  candidate: {
-  	border: 'solid 2px rgba(0,0,0,0.8)',
-  	width: '28%',
-  	float: 'left',
-  	padding: '8px 9px 10px 9px',
-  	margin: '5px 5px 5px 5px',
-    backgroundColor: 'white',
-    color: 'rgba(0,0,0,0.8)',
-    position: 'relative'
-  },
-  voteButton: {
-  	position:'absolute',
-  	bottom: '0px',
-  	right: '0px',
-  }
-
-};
 
 const mapStateToProps = (state)=> {
       return {
- 			status: state.candidate.status,
- 			count: state.candidate.count
+				candidates: state.question.candidates
       }
     },
     mapDispatchToProps = (dispatch)=> {
       return {
+				dispatch
       }
     };
 

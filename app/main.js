@@ -21,7 +21,7 @@ ReactDOM.render((
 	  <Provider store={store}>
 	    <Router history={hashHistory}>
 		    <Route path="/" component={App}>
-					<IndexRoute component={Results}/>
+					<IndexRoute component={Vote}/>
 		      <Route path="create" component={Create}/>
 		      <Route path="vote" component={Vote}/>
 		      <Route path="results" component={Results}/>

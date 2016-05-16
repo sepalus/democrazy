@@ -1,0 +1,21 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.candidate {
+  background-color: $nl-gray;
+  @include box-depth(1);
+  margin-bottom: 1rem;
+  padding: 1rem 0.3rem;
+
+  &.chosen {
+    background-color: $nl-gold;
+  }
+
+  &:hover {
+    @include box-depth(3);
+  }
+
+  .title {
+    font-weight: bold;
+  }
+}

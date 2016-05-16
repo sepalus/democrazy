@@ -26,12 +26,13 @@ class Create extends React.Component {
 
   render() {
 
-    return (<div className="row">
-			  Question:<br/>
+    return (
+      <div className="question">
+			  <span class="question-title">Question</span>:
 			  <input type="text" name="question" placeholder="Who is the next American president?"/><br/>
 			  Asker:<br/>
 			  <input type="text" name="asker" placeholder="Who wants to know?"/><br/>
-         
+
             <Button
                 text="Add candidate"
                 type="nav-btn"
@@ -40,7 +41,7 @@ class Create extends React.Component {
             />
     </div>);
   }
- 
+
 }
 
 export default connect(

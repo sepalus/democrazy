@@ -1,0 +1,18 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+button.nl-button {
+  background: none;
+  border-radius: 2rem;
+  border: 0.3rem solid $nl-purple;
+  color: $nl-purple;
+  font-weight: bold;
+  outline: none !important;
+
+  &:hover {
+    background-color: $nl-gray;
+    @include box-depth(3);
+  }
+
+  @include box-depth(1);
+}

@@ -4,27 +4,27 @@ import CandidateList from '../components/CandidateList';
 import actions from '../actions/candidate';
 
 class Vote extends React.Component {
-	constructor() {
-	    super();
-	  }
-
 	render() {
-		return (<div>
-				      <div className="row first-component centralize">
+		return (
+					<div>
+				      <div className="row">
+								<div className="column small-12">
 				          <h1>Place your bets!</h1>
+								</div>
 				      </div>
-				      <div className="container">
-				        <CandidateList/>
+				      <div className="row">
+								<div className="column small-12">
+				        	<CandidateList/>
+								</div>
 				      </div>
-        
-    			</div>);
+    			</div>
+				);
 	}
 };
 
 const mapStateToProps = (state)=> {
       return {
- 			status: state.candidate.status
-
+ 				candidates: state.question.candidates
       }
     },
     mapDispatchToProps = (dispatch)=> {
