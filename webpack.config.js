@@ -2,12 +2,10 @@ var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
 
-
 module.exports = {
-    context: path.join(__dirname, 'app'),
-    entry: "./main.js",
+    entry: path.join(__dirname, 'app', 'main.js'),
     output: {
-        path: './public',
+        path: path.join(__dirname, 'public'),
         filename: 'index.js'
     },
     node: {
@@ -40,11 +38,8 @@ module.exports = {
           force: true
         }
       ])
-  ].concat([
-          new webpack.optimize.UglifyJsPlugin()
-      ]),
-    devServer: {
-        contentBase: "./public"
-
-    }
+  ],
+  devServer: {
+      contentBase: path.join(__dirname, 'public')
+  }
 };
