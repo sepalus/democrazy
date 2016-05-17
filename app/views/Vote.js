@@ -16,7 +16,7 @@ class Vote extends React.Component {
 								</div>
 				      </div>
 				      <div className="row">
-								<div className="column small-12">
+								<div className="column small-12 small-centered">
 				        	<CandidateList/>
 								</div>
 				      </div>

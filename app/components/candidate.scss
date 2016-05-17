@@ -7,7 +7,10 @@
   margin-bottom: 1rem;
   padding: 1rem 0.5rem;
   position: relative;
+  display: inline-block;
+  text-align: left;
   z-index: 5;
+  width: 100%;
 
   &.chosen {
     .status {
@@ -33,6 +36,7 @@
     .candidate-buttons-container {
       opacity: 1;
       z-index: 6;
+      visibility: visible;;
       transition: opacity 500ms ease-in-out;
     }
   }
@@ -57,13 +61,16 @@
     opacity: 0;
     z-index: 1;
     text-align: center;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
     padding-top: 1.8rem;
     background-color: rgba(255, 255, 255, 0.7);
     transition: opacity 500ms ease-in-out;
 
     .candidate-button {
       margin: 0.2rem;
-      background-color: $nl-gray;
     }
   }
 }
