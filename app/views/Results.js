@@ -1,36 +1,55 @@
 var React = require('react');
-import Button from '../components/Button';
+import Bar from '../components/Bar';
 import {connect} from 'react-redux';
 
+require('./results.scss');
+
 class Results extends React.Component {
+
+	renderVotes() {
+		const length = this.props.votes.length,
+					self = this;
+
+		let votes = {};
+		for(let i = 0; i < length; i++) {
+			let vote = self.props.votes[i].candidate.toString();
+			if(votes.hasOwnProperty(vote)) votes[vote] += 1;
+			else votes[vote] = 1;
+		}
+
+		const max = _.max(_.values(votes));
+
+		return _.map(this.props.candidates, function(candidate, index) {
+			return (
+				<Bar key={index} votes={votes[candidate.id] || 0} max={max} title={candidate.title}/>
+			);
+		})
+	}
+
 	render() {
 		return (<div>
-							<div className="row voting-container">
+							<div className="row results-container">
 								<div className="column small-12 title-container">
-									<span className="heading">Vote</span>
+									<span className="heading">Results</span>
 									<h2>{ this.props.question }</h2>
 								</div>
 							</div>
 				      <div className="row">
 								<div className="column small-12 small-centered">
-									<h1>We demand RESULTS!!</h1>
-									<Button
-										text="Click"
-										className="button"
-										type="nav-btn"
-										icon="fa fa-search"
-										handleClick = {()=> { console.log('click')}}
-									/>
+									<div className="bars-container">
+										{ this.renderVotes() }
+									</div>
 								</div>
 				      </div>
     		</div>);
 	}
 };
+
 const mapStateToProps = (state)=> {
       return {
 				question: state.text,
  				candidates: state.candidates,
-				votes: []
+				votes: state.votes
       }
     },
     mapDispatchToProps = (dispatch)=> {

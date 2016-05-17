@@ -7,44 +7,63 @@ const initialState = {
 		text: 'What do you think?',
 		candidates: [
 			{
-				id: '1',
+				id: 1,
 				title: 'Lorem',
 				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
 			},
 			{
-				id: '2',
+				id: 2,
 				title: 'Ipsum',
 				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
 			},
 			{
-				id: '3',
+				id: 3,
 				title: 'Lorem',
 				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
 			},
 			{
-				id: '4',
+				id: 4,
 				title: 'Lorem',
 				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
 			},
 			{
-				id: '5',
+				id: 5,
 				title: 'Lorem',
 				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
+			}
+		],
+		votes: [
+			{
+				candidate: 5,
+				token: 'asedrftyguhijop'
 			},
 			{
-				id: '6',
-				title: 'Lorem',
-				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
+				candidate: 2,
+				token: 'asedrftyguhijop'
 			},
 			{
-				id: '7',
-				title: 'Lorem',
-				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
+				candidate: 5,
+				token: 'asedrftyguhijop'
 			},
 			{
-				id: '8',
-				title: 'LOL',
-				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
+				candidate: 1,
+				token: 'asedrftyguhijop'
+			},
+			{
+				candidate: 3,
+				token: 'asedrftyguhijop'
+			},
+			{
+				candidate: 3,
+				token: 'asedrftyguhijop'
+			},
+			{
+				candidate: 5,
+				token: 'asedrftyguhijop'
+			},
+			{
+				candidate: 1,
+				token: 'asedrftyguhijop'
 			}
 		]
 	};
