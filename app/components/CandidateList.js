@@ -58,7 +58,7 @@ class CandidateList extends React.Component {
 		return _.map(this.props.candidates, function(candidate, index) {
 			return <Candidate
 								key={candidate.id}
-								data={Object.assign(candidate, { votedFor: voted.candidate === candidate.id })}
+								data={Object.assign(candidate, { votedFor: hasVoted && voted.candidate === candidate.id })}
 								hasVoted={hasVoted}
 								selected={ candidate.id === self.state.selected }
 								handleSelect={ self.selecteItem }
