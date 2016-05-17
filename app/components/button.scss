@@ -8,10 +8,24 @@ button.nl-button {
   color: $nl-purple;
   font-weight: bold;
   outline: none !important;
+  background-color: white;
 
   &:hover {
-    background-color: $nl-gray;
     @include box-depth(3);
+  }
+
+  &.red {
+    color: $nl-red;
+    border: 0.3rem solid $nl-red;
+  }
+
+  &.green {
+    color: $nl-green;
+    border: 0.3rem solid $nl-green;
+  }
+
+  .fa {
+    margin-right: 0.2rem;
   }
 
   @include box-depth(1);

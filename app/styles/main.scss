@@ -6,14 +6,7 @@
 
 body {
   font-family: 'texgyreadventor';
-}
-
-header {
-  background-color: #36185F;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  color: $nl-purple;
 }
 
 .container {

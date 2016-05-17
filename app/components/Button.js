@@ -12,7 +12,9 @@ class Button extends React.Component {
 	}
 	render() {
 		return(
-			<button className="nl-button" onClick={this.props.handleClick}> {this.props.text}
+			<button className={"nl-button " + this.props.type} onClick={ this.props.handleClick }>
+		 		{ this.props.icon ? <i className={"fa fa-" + this.props.icon}></i> : '' }
+				{this.props.text}
 			</button>
 			);
 	}

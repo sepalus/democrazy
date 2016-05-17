@@ -5,17 +5,65 @@
   background-color: $nl-gray;
   @include box-depth(1);
   margin-bottom: 1rem;
-  padding: 1rem 0.3rem;
+  padding: 1rem 0.5rem;
+  position: relative;
+  z-index: 5;
 
   &.chosen {
-    background-color: $nl-gold;
+    .status {
+      display: inline-block;
+    }
   }
 
-  &:hover {
-    @include box-depth(3);
-  }
-
-  .title {
+  .status {
+    color: $nl-green;
+    display: none;
+    font-size: 0.8em;
     font-weight: bold;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.5rem;
+
+    .fa {
+      margin-right: 0.2rem;
+    }
+  }
+
+  &.selected {
+    .candidate-buttons-container {
+      opacity: 1;
+      z-index: 6;
+      transition: opacity 500ms ease-in-out;
+    }
+  }
+
+  .candidate-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .candidate-text {
+    font-size: 0.8em;
+  }
+
+  .candidate-buttons-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    text-align: center;
+    padding-top: 1.8rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: opacity 500ms ease-in-out;
+
+    .candidate-button {
+      margin: 0.2rem;
+      background-color: $nl-gray;
+    }
   }
 }

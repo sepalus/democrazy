@@ -1,0 +1,30 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.voting-container {
+  margin-top: 8rem;
+}
+
+.title-container {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  height: 7rem;
+  background-color: $nl-purple;
+  color: white;
+  margin-bottom: 0.5rem;
+  @include box-depth(2);
+
+  .heading {
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+
+  h2 {
+    margin: 0 0.5rem 0.5rem;
+  }
+}
+
+.button-container {
+  text-align: center;
+}

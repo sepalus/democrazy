@@ -8,13 +8,14 @@ import App from './views/App';
 import Create from './views/Create';
 import Vote from './views/Vote';
 import Results from './views/Results';
-import reducer from './reducers/reducers';
+import question from './reducers/question';
+import {socketMiddleware} from './middleware/socket';
 
 require('./styles/main.scss');
 
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const store = createStoreWithMiddleware(reducer);
+const createStoreWithMiddleware = applyMiddleware(thunk,socketMiddleware)(createStore);
+const store = createStoreWithMiddleware(question);
 
 
 ReactDOM.render((

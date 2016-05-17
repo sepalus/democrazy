@@ -2,10 +2,21 @@ import React from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import Candidate from './Candidate';
+import { addVote } from '../actions/vote';
 
 require('./candidateList.scss');
 
 class CandidateList extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			selected: ''
+		}
+		this.selecteItem = this.selecteItem.bind(this);
+		this.unselecteItem = this.unselecteItem.bind(this);
+		this.vote = this.vote.bind(this);
+	}
 
 	// componentDidMount() {
   //     var self=this;
@@ -19,9 +30,32 @@ class CandidateList extends React.Component {
     //   candidates.push(newguy);
     // }
 
+	selecteItem(id) {
+		this.setState({
+			selected: id
+		})
+	}
+
+	unselecteItem() {
+		this.setState({
+			selected: ''
+		})
+	}
+
+	vote(vote) {
+		this.props.dispatch( addVote(vote) );
+	}
+
 	renderItems() {
+		let self = this;
 		return _.map(this.props.candidates, function(candidate, index) {
-			return <Candidate key={candidate.id} data={candidate} chosen={ index ===  1}/>
+			return <Candidate
+								key={candidate.id}
+								data={candidate}
+								selected={ candidate.id === self.state.selected }
+								handleSelect={ self.selecteItem }
+								handleUnselect={ self.unselecteItem }
+								handleVote={ self.vote }/>
 		})
 	}
 
@@ -36,7 +70,7 @@ class CandidateList extends React.Component {
 
 const mapStateToProps = (state)=> {
       return {
-				candidates: state.question.candidates
+				candidates: state.candidates
       }
     },
     mapDispatchToProps = (dispatch)=> {
