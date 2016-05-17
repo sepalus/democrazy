@@ -1,9 +1,16 @@
 var React = require('react');
 import Button from '../components/Button';
+import {connect} from 'react-redux';
 
 class Results extends React.Component {
 	render() {
 		return (<div>
+							<div className="row voting-container">
+								<div className="column small-12 title-container">
+									<span className="heading">Vote</span>
+									<h2>{ this.props.question }</h2>
+								</div>
+							</div>
 				      <div className="row">
 								<div className="column small-12 small-centered">
 									<h1>We demand RESULTS!!</h1>
@@ -19,5 +26,20 @@ class Results extends React.Component {
     		</div>);
 	}
 };
+const mapStateToProps = (state)=> {
+      return {
+				question: state.text,
+ 				candidates: state.candidates,
+				votes: []
+      }
+    },
+    mapDispatchToProps = (dispatch)=> {
+      return {
+        dispatch
+      }
+    };
 
-module.exports = Results;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Results);
