@@ -10,7 +10,9 @@ export default class Bar extends React.Component {
 
 		return(
         <span className="bar-container">
-          <span className={"bar per-" + Math.round(votes*10/max)*10} data-votes={votes}>{votes}</span>
+          <span className={"bar per-" + Math.round(votes*10/max)*10} data-votes={votes}>
+            <span className="votes-count">{votes}</span>
+          </span>
           <span className="bar-title">{title}</span>
         </span>
 			);

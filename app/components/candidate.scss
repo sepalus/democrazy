@@ -18,6 +18,20 @@
     }
   }
 
+  .voted-for {
+    display: inline-block;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    color: $nl-green;
+    font-weight: bold;
+    font-size: 0.8em;
+
+    .fa {
+      margin-right: 0.2rem;
+    }
+  }
+
   .status {
     color: $nl-green;
     display: none;

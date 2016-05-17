@@ -35,7 +35,7 @@ const initialState = {
 		votes: [
 			{
 				candidate: 5,
-				token: 'asedrftyguhijop'
+				token: '4565768g7h9jok'
 			},
 			{
 				candidate: 2,
@@ -47,7 +47,7 @@ const initialState = {
 			},
 			{
 				candidate: 1,
-				token: 'asedrftyguhijop'
+				token: 'mafffs'
 			},
 			{
 				candidate: 3,
@@ -59,7 +59,7 @@ const initialState = {
 			},
 			{
 				candidate: 5,
-				token: 'asedrftyguhijop'
+				token: '9i0ojhgcjk'
 			},
 			{
 				candidate: 1,

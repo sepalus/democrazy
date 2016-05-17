@@ -1,4 +1,5 @@
 @import '../styles/variables';
+@import '../styles/mixins';
 
 .bar-container {
   display: inline-block;
@@ -15,6 +16,9 @@
     position: absolute;
     bottom: 1.5rem;
     transition: max-height 200ms ease-in-out;
+    text-align: center;
+
+    @include box-depth(1);
 
     &.per-0 {
       max-height: calc(0% - 2rem);
@@ -28,11 +32,17 @@
         transition: max-height 200ms ease-in-out;
       }
     }
+
+    .votes-count {
+      font-weight: bold;
+      color: white;
+    }
   }
 
   .bar-title {
     position: absolute;
     bottom: 0;
     transform: translateX(-20%);
+    font-weight: bold;
   }
 }
