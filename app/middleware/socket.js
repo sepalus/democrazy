@@ -1,14 +1,14 @@
 import { voteAdded, ADD_VOTE, VOTE_ADDED } from '../actions/vote';
-import { INIT_STATE, initState } from '../actions/init';
+import { INIT_STATE, INIT_STATE_SUCCESS, initState } from '../actions/init';
 import io from 'socket.io-client';
 
 let socket;
 
 export function start(store) {
+  socket = io.connect('/');
 
-  socket = io.connect(`${location.protocol}//${location.host}`);
-
-  socket.on('connect', state => {
+  socket.on(INIT_STATE_SUCCESS, state => {
+    console.log(INIT_STATE_SUCCESS, state);
     store.dispatch(initState(state))
   });
 

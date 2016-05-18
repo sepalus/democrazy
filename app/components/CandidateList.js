@@ -44,14 +44,14 @@ class CandidateList extends React.Component {
 	}
 
 	vote(vote) {
-		this.props.dispatch( voteAdded(vote) );
+		this.props.dispatch( addVote(vote) );
 	}
 
 	renderItems() {
 		let self = this;
 
 		const	voted = _.filter(self.props.votes, function(vote) {
-					return vote.token === 'mafffs'
+					return vote.token === ''
 				})[0],
 				hasVoted = !!voted;
 
