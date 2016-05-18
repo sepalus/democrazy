@@ -17,6 +17,7 @@
     bottom: 1.5rem;
     transition: max-height 200ms ease-in-out;
     text-align: center;
+    min-height: 2rem;
 
     @include box-depth(1);
 
