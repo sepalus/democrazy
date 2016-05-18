@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js -d",
-    "prod": "./node_modules/webpack/bin/webpack.js -p",
-    "postinstall": "npm run prod",
+    "build": "webpack",
+    "dev": "webpack-dev-server -d",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Högnabba",
@@ -23,6 +23,7 @@
     "body-parser": "^1.14.1",
     "colors": "^1.1.2",
     "compression": "^1.6.0",
+    "connect-history-api-fallback": "^1.2.0",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
     "express": "^4.13.3",
@@ -77,6 +78,12 @@
     "gulp-util": "^3.0.7",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
+<<<<<<< HEAD
     "watchify": "^3.6.0"
+=======
+    "watchify": "^3.6.0",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.13.0"
+>>>>>>> 983f19adaf35c235c686e16bf31a5712284c4304
   }
 }
