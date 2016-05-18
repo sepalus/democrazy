@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --watch",
+    "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Högnabba",
