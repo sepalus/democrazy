@@ -1,7 +1,7 @@
 const express = require('express'),
   app = express(),
   path = require('path');
-  port = process.env.port || 3000,
+  port = process.env.PORT || 3000,
   http = require("http"),
   webpackconfig = require("./webpack.config"),
   //socketServer = require("./server/socket"),
