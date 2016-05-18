@@ -2,7 +2,7 @@
 @import '../styles/mixins';
 
 .candidate {
-  background-color: $nl-gray;
+  background-color: white;
   @include box-depth(1);
   margin-bottom: 1rem;
   padding: 1rem 0.5rem;
