@@ -53,6 +53,7 @@
     "style-loader": "^0.13.1",
     "swig": "^1.4.2",
     "underscore": "^1.8.3",
+    "webpack-middleware": "^1.5.1",
     "xml2js": "^0.4.15"
   },
   "devDependencies": {
