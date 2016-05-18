@@ -9,6 +9,7 @@ body {
   font-family: 'texgyreadventor';
   color: $nl-purple;
   padding-top: 8rem;
+  background-color: $nl-gray;
 }
 
 .container {
@@ -21,7 +22,10 @@ body {
   left: 0;
   z-index: 10;
   height: 7rem;
-  background-color: $nl-purple;
+  background: linear-gradient(
+      to top,
+      $nl-purple, $nl-light-purple
+    );;
   color: white;
   margin-bottom: 0.5rem;
   @include box-depth(2);
