@@ -4,12 +4,19 @@ const express = require('express'),
   port = process.env.PORT || 3000,
   http = require("http"),
   webpackconfig = require("./webpack.config"),
-  //socketServer = require("./server/socket"),
   webpack = require("webpack"),
-  webpackMiddleware = require("webpack-middleware"),
-//  webpackHotMiddleware = require('webpack-hot-middleware'),
-  history = require('connect-history-api-fallback'),
+  webpackMiddleware = require("webpack-dev-middleware"),
   compiler = webpack(webpackconfig);
+
+app.use(webpackMiddleware(compiler ,{
+ stats: {
+   colors: true
+ },
+ watchOptions: {
+   aggregateTimeout: 300,
+   poll: true
+ }
+}));
 
 var server = app.listen(port, function () {
   var host = server.address().address;
@@ -24,10 +31,14 @@ var data = require('./server/data');
 io.on('connection', function(socket){
 
   socket.emit('INIT_STATE_SUCCESS', data);
-  socket.on('ADD_VOTE', function(msg){
-    console.log('ADD_VOTE received: ' + msg);
-    // TODO when vote is added, then notify client
-    socket.emit('VOTE_ADDED', {example: 123});
+
+  socket.on('ADD_VOTE', function(vote){
+    console.log('ADD_VOTE received: ' + vote);
+    var newVote = {candidate: vote.id, token: 'mafffs'};
+    data.votes.push(newVote);
+
+    // broadcast to all
+    socket.broadcast.emit('VOTE_ADDED', newVote);
   });
   console.log('A user connected');
 });
