@@ -6,37 +6,10 @@ const express = require('express'),
   webpackconfig = require("./webpack.config"),
   //socketServer = require("./server/socket"),
   webpack = require("webpack"),
-//  webpackMiddleware = require("webpack-middleware"),
+  webpackMiddleware = require("webpack-middleware"),
 //  webpackHotMiddleware = require('webpack-hot-middleware'),
   history = require('connect-history-api-fallback'),
   compiler = webpack(webpackconfig);
-
-//app.use(history({
-//    index: '/public/index.html'
-//  rewrites: [
-//    { from: /\/\//, to: 'public/index.html'}
-//  ]
-//}));
-
-//app.use(webpackHotMiddleware(compiler,{
-//  log: console.log
-//}));
-
-//app.use(webpackMiddleware(compiler ,{
-//  stats: {
-//    colors: true
-//  },
-//  watchOptions: {
-//    aggregateTimeout: 300,
-//    poll: true
-//  },
-//  hot: true
-//}));
-
-
-//app.get('/', function(req, res){
-//  res.sendFile(__dirname + '/public/index.html');
-//});
 
 var server = app.listen(port, function () {
   var host = server.address().address;
