@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server -d",
+    "dev": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Högnabba",
@@ -77,6 +77,7 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.0",
     "webpack": "^1.13.0",
+    "webpack-middleware": "*",
     "webpack-dev-server": "^1.13.0"
   }
 }
