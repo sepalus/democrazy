@@ -8,27 +8,27 @@ var data = {
   candidates: [
     {
       id: 1,
-      title: 'Lorem',
+      title: 'Lorem1',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
     },
     {
       id: 2,
-      title: 'Ipsum',
+      title: 'Ipsum2',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
     },
     {
       id: 3,
-      title: 'Lorem',
+      title: 'Lorem3',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
     },
     {
       id: 4,
-      title: 'Lorem',
+      title: 'Lorem4',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
     },
     {
       id: 5,
-      title: 'Lorem',
+      title: 'Lorem5',
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?'
     }
   ],

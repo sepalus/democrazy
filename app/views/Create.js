@@ -34,7 +34,7 @@ class Create extends React.Component {
 			  <input type="text" name="asker" placeholder="Who wants to know?"/><br/>
 
             <Button
-                text="Add candidate"
+                text="Addz candidates"
                 type="nav-btn"
                 icon="fa fa-search"
                 handleClick = {this.handleClick}
