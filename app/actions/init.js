@@ -1,18 +1,10 @@
 import candidate from './candidate.js';
+import { INIT_STATE } from '../constants';
 
-export const INIT_STATE = 'INIT_STATE';
-export const INIT_STATE_SUCCESS = 'INIT_STATE_SUCCESS';
-
-export function initState(state) {
+export function initState(state, token) {
   return {
     type: INIT_STATE,
-    state
+    state,
+    token
   };
-}
-
-export function initStateSuccess(state) {
-  return {
-    type: INIT_STATE,
-    state
-  }
 }

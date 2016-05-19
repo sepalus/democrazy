@@ -31,40 +31,7 @@ var data = {
       text: "Let's starve..."
     }
   ],
-  votes: [
-    {
-      candidate: 5,
-      token: '4565768g7h9jok'
-    },
-    {
-      candidate: 2,
-      token: 'asedrftyguhijop'
-    },
-    {
-      candidate: 5,
-      token: 'asedrftyguhijop'
-    },
-    {
-      candidate: 1,
-      token: 'mafffs'
-    },
-    {
-      candidate: 3,
-      token: 'asedrftyguhijop'
-    },
-    {
-      candidate: 3,
-      token: 'asedrftyguhijop'
-    },
-    {
-      candidate: 5,
-      token: '9i0ojhgcjk'
-    },
-    {
-      candidate: 1,
-      token: 'asedrftyguhijop'
-    }
-  ]
+  votes: []
 };
 
 module.exports = data;
