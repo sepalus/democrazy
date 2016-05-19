@@ -12,7 +12,10 @@ const express = require('express'),
 const INIT_STATE_REQUEST = require('./app/constants').INIT_STATE_REQUEST,
       INIT_STATE_SUCCESS = require('./app/constants').INIT_STATE_SUCCESS,
       ADD_VOTE = require('./app/constants').ADD_VOTE,
-      VOTE_ADDED = require('./app/constants').VOTE_ADDED;
+      VOTE_ADDED = require('./app/constants').VOTE_ADDED,
+      NEW_QUESTION = require('./app/constants').NEW_QUESTION;
+
+const Joi = require('joi');
 
 if(!process.env.PROD) {
   app.use(webpackMiddleware(compiler ,{
@@ -61,16 +64,50 @@ io.on('connection', function(socket){
       // Can only vote once
       if( !data.votes.filter(function(a) { return a.token === vote.token }).length ) {
 
-        var newVote = {candidate: vote.id, token: vote.token};
-        data.votes.push(newVote);
+        var schema = Joi.object().keys({
+          candidate: Joi.number().integer().min(0),
+          token: Joi.string().guid()
+        });
 
-        // broadcast to all
-        io.sockets.emit(VOTE_ADDED, newVote);
+        var newVote = {candidate: vote.id, token: vote.token};
+        Joi.validate(newVote,schema,function(err ,value){
+          if(err === null){
+            console.log(data);
+            data.votes.push(newVote);
+            // broadcast to all
+            io.sockets.emit(VOTE_ADDED, newVote);
+          }
+        });
       }
       else {
         //socket.broadcast.emit(VOTE_ADDED, newVote);
       }
     }
+  });
+  /*
+    Recieve the new question!
+  */
+  socket.on(NEW_QUESTION, function(newQuestion){
+    var schema = Joi.object().keys({
+      text: Joi.string(),
+      candidates: Joi.array().items(
+        Joi.object().keys({
+          id: Joi.number().integer().min(0),
+          title: Joi.string(),
+          text: Joi.string()
+        })
+      )
+    });
+    Joi.validate(newQuestion, schema, function(err, value){
+      if(err === null){
+        data.text = newQuestion.text;
+        data.candidates = newQuestion.candidates;
+        data.votes = [];
+
+        //send the new question to all
+        io.sockets.emit(NEW_QUESTION, data);
+      }
+    });
   });
 });
 

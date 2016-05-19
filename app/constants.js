@@ -6,5 +6,7 @@ module.exports = {
   TOKEN: 'TOKEN',
 
   ADD_VOTE: 'ADD_VOTE',
-  VOTE_ADDED: 'VOTE_ADDED'
+  VOTE_ADDED: 'VOTE_ADDED',
+
+  NEW_QUESTION: 'NEW_QUESTION'
 }
