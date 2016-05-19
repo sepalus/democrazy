@@ -3,7 +3,7 @@
 
 .bar-container {
   display: inline-block;
-  width: 2rem;
+  width: 3rem;
   margin: 0 1rem;
   position: relative;
   height: 100%;
@@ -12,11 +12,12 @@
     background-color: $nl-gold;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 50%;
     position: absolute;
     bottom: 1.5rem;
     transition: max-height 200ms ease-in-out;
     text-align: center;
+    min-height: 2rem;
 
     @include box-depth(1);
 
@@ -42,7 +43,12 @@
   .bar-title {
     position: absolute;
     bottom: 0;
-    transform: translateX(-20%);
+    transform: translateX(-1rem);
     font-weight: bold;
+    width: calc(100% + 2rem);
+    text-align: center;
+    z-index: 2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

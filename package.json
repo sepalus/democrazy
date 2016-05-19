@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack --watch",
-    "postinstall": "npm run build",
+    "dev": "node webpack-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Högnabba",
@@ -32,6 +31,7 @@
     "file-loader": "^0.8.5",
     "file-system": "^2.2.1",
     "foundation-sites": "^5.5.3",
+    "guid": "0.0.12",
     "history": "^1.13.0",
     "html-webpack-plugin": "^2.17.0",
     "lodash": "^4.12.0",

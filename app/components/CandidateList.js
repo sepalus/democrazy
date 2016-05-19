@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import Candidate from './Candidate';
 import { addVote, voteAdded } from '../actions/vote';
+import { TOKEN } from '../constants';
 
 require('./candidateList.scss');
 
@@ -50,8 +51,9 @@ class CandidateList extends React.Component {
 	renderItems() {
 		let self = this;
 
-		const	voted = _.filter(self.props.votes, function(vote) {
-					return vote.token === ''
+		const	token = localStorage ? localStorage.getItem(TOKEN): '',
+					voted = _.filter(self.props.votes, function(vote) {
+						return vote.token === token;
 				})[0],
 				hasVoted = !!voted;
 
