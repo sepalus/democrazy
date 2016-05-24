@@ -3,32 +3,32 @@
  */
 var data = {
   status: "INITIAL",
-  text: 'Where should we have lunch today?',
+  text: 'What is your favorite yoga position?',
   candidates: [
     {
       id: 1,
-      title: 'Factory',
-      text: 'Allways good, desert, close and much space.'
+      title: 'Downward Facing Dog',
+      text: 'Looks awkwards, feels awkward, even smells awkward.'
     },
     {
       id: 2,
-      title: 'Twisted',
-      text: 'The best asian street food ever. Also healthy.'
+      title: 'Cobra',
+      text: 'Deadly.'
     },
     {
       id: 3,
-      title: 'Hoshito',
-      text: 'Similar to Twisted but closer.'
+      title: 'Shavasana',
+      text: 'Lie down on your back and relax.'
     },
     {
       id: 4,
-      title: 'Perho',
-      text: 'Similar to Factory.'
+      title: 'Any position as long as its Tantric ',
+      text: 'Two is better than one.'
     },
     {
       id: 5,
-      title: 'No lunch.',
-      text: "Let's starve..."
+      title: 'Kaljaa perkele',
+      text: "..mua mikään jooga kiinnosta.. "
     }
   ],
   votes: []
