@@ -22,13 +22,13 @@ var data = {
     },
     {
       id: 4,
-      title: 'Any position as long as its Tantric ',
+      title: 'Tantric Positions',
       text: 'Two is better than one.'
     },
     {
       id: 5,
-      title: 'Kaljaa perkele',
-      text: "..mua mikään jooga kiinnosta.. "
+      title: 'kaljaa perkele',
+      text: "mua mikään jooga kiinnosta"
     }
   ],
   votes: []
