@@ -8,27 +8,27 @@ var data = {
     {
       id: 1,
       title: 'Downward Facing Dog',
-      text: 'Looks awkwards, feels awkward, even smells awkward.'
+      text: 'Looks awkward, feels awkward, even smells awkward'
     },
     {
       id: 2,
       title: 'Cobra',
-      text: 'Deadly.'
+      text: 'Deadly'
     },
     {
       id: 3,
       title: 'Shavasana',
-      text: 'Lie down on your back and relax.'
+      text: 'Lie down on your back and relax'
     },
     {
       id: 4,
       title: 'Tantric Positions',
-      text: 'Two is better than one.'
+      text: 'Two is better than one'
     },
     {
       id: 5,
-      title: 'kaljaa perkele',
-      text: "mua mikään jooga kiinnosta"
+      title: 'kaljaa',
+      text: 'kaljaa perkele! ...ja lihaa myös!'
     }
   ],
   votes: []
