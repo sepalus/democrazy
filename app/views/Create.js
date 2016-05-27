@@ -1,106 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Button from '../components/Button';
+import Form from '../components/Form';
+import { newCandidate, removeCandidate } from '../actions/candidate';
 import {connect} from 'react-redux';
-import actions from '../actions/candidate';
 
-require('./create.scss');
-
+var count =0; //replace this
 class Create extends React.Component {
 
   constructor() {
-      super();
-      this.handleClick = this.handleClick.bind(this);
+    super();
+    this.addCandidate = this.addCandidate.bind(this);
+    this.removeCandidate = this.removeCandidate.bind(this);
   }
-  
 
-  handleClick() {
-    //var candidates;
+  addCandidate() {
+    count ++; //replace this
+    let candidate= {id:count, valid:false};
+    this.props.dispatch(newCandidate(candidate) );
+  }
 
-    //this.props.dispatch(actions.addCandidate());
-
+  removeCandidate(candidate) {
+    this.props.dispatch(removeCandidate(candidate) );
   }
 
 
   render() {
-
     return (
       <div>
-          <div className="row results-container">
-                <div className="column small-12 title-container">
-                    <span className="heading">... </span>
-                    <h2>Create a new vote</h2>
-                </div>
-          </div>
-          <div className="row results-container">
-              <form className="create-vote-form">
-                <label>Question:</label><br/>
-                <input type="text"/><br/>
-                <label>Asker:</label><br/>
-                <input type="text"/>
-                <label>Candidates:</label><br/>
-              </form>
-          </div>
-           
-
-          
-          <div className="row">
-                <div className="column small-12 small-centered">
-                  <div className="add-candidate-container">
-                     <form className="add-candidate-form">
-                      <div className="add-candidate-input-wrapper">
-                        <input type="text" className="add-candidate-input" placeholder="Add name"/>
-                       </div>
-                       <div className="add-candidate-input-wrapper"> 
-                          <input type="text"  className="add-candidate-input" placeholder="Add pitch"/>
-                        </div>
-                      </form>
-                      <form className="add-candidate-form">
-                      <div className="add-candidate-input-wrapper">
-                        <input type="text" className="add-candidate-input" placeholder="Add name"/>
-                       </div>
-                       <div className="add-candidate-input-wrapper"> 
-                          <input type="text"  className="add-candidate-input" placeholder="Add pitch"/>
-                        </div>
-                      </form>
-                  </div>
-                   
-                </div>
-             
-            </div>
-
-
-            <div className="row results-container">
-              <div className="column small-12 small-centered align-center">
-                  <Button text="Add candidate"/>
+        <div className="row results-container">
+              <div className="column small-12 title-container">
+                  <span className="heading">Create</span>
+                  <h2>Create a new vote</h2>
               </div>
-              <div className="column small-12 small-centered align-center">
-                  <Button text="Create vote"/>
-              </div>
-    
-          </div>
-          
-          <div>
-           
-          </div>
+        </div>
+        <div className="row">       
+          <div className="column small-12 small-centered">
+             <Form 
+                removeCandidate={this.removeCandidate}
+                addCandidate={this.addCandidate}
 
-          
-
-
-          
+              />
+          </div>    
+        </div>          
     </div>);
   }
 
 }
 
-export default connect(
-    (state)=> {
+const mapStateToProps = (state)=> {
       return {
       }
     },
-    (dispatch)=> {
-        return {
-            dispatch
-        }
-    }
+    mapDispatchToProps = (dispatch)=> {
+      return {
+        dispatch
+      }
+    };
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
 )(Create)

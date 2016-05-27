@@ -1,12 +1,16 @@
-const ADD_CANDIDATE = "ADD_CANDIDATE";
+const NEW_CANDIDATE = "NEW_CANDIDATE";
+const REMOVE_CANDIDATE = "REMOVE_CANDIDATE";
 
-function addCandidate() {
+export function newCandidate(candidate) {
 	return {
-		type: ADD_CANDIDATE,
+		type: NEW_CANDIDATE,
+		candidate
     }
 }
 
-
-export default {
-  addCandidate
+export function removeCandidate(candidate) {
+	return {
+		type: REMOVE_CANDIDATE,
+		candidate
+    }
 }

@@ -47,9 +47,9 @@ class Results extends React.Component {
 
 const mapStateToProps = (state)=> {
       return {
-				question: state.text,
- 				candidates: state.candidates,
-				votes: state.votes
+				question: state.question.text,
+ 				candidates: state.question.candidates,
+				votes: state.question.votes
       }
     },
     mapDispatchToProps = (dispatch)=> {
