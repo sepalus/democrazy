@@ -1,5 +1,4 @@
-const NEW_CANDIDATE = "NEW_CANDIDATE";
-const REMOVE_CANDIDATE = "REMOVE_CANDIDATE";
+import { NEW_CANDIDATE, REMOVE_CANDIDATE} from '../constants';
 
 const initialState = {
 	newCandidates: [],
