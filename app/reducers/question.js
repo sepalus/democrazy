@@ -19,7 +19,6 @@ function question(state = initialState, action) {
 				votes: [].concat(action.state.votes)
 			}
 		case VOTE_ADDED:
-			console.log('VOTET_ADDED', action.vote);
 			return {
 				text: state.text,
 				candidates: state.candidates,

@@ -8,14 +8,15 @@ import App from './views/App';
 import Create from './views/Create';
 import Vote from './views/Vote';
 import Results from './views/Results';
-import question from './reducers/question';
+import reducers from './reducers/reducers';
+
 import {socketMiddleware,start} from './middleware/socket';
 
 require('./styles/main.scss');
 
 
 const createStoreWithMiddleware = applyMiddleware(thunk,socketMiddleware)(createStore);
-const store = createStoreWithMiddleware(question);
+const store = createStoreWithMiddleware(reducers);
 start(store);
 
 
