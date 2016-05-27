@@ -1,0 +1,22 @@
+@import '../styles/variables';
+
+.create-vote-form {
+	text-align:center;
+}
+.create-vote-form label {
+	font-size:20px;
+}
+.create-vote-form input {
+	width: calc(100% - 60px);
+	font-size:1.2em;
+}
+
+.create-vote-button-wrapper {
+	width:100%;
+}
+
+.horizontal-line {
+	height:1px;
+	margin: 30px 30px 20px 20px;
+	background: linear-gradient(to right, $nl-gray, darkgray, $nl-gray);
+}
