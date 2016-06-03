@@ -1,8 +1,10 @@
 import { voteAdded } from '../actions/vote';
+import { questionAdded } from '../actions/question';
+
 import { initState } from '../actions/init';
 import io from 'socket.io-client';
 
-import { INIT_STATE, INIT_STATE_SUCCESS, INIT_STATE_REQUEST, TOKEN, ADD_VOTE, VOTE_ADDED } from '../constants';
+import { INIT_STATE, INIT_STATE_SUCCESS, INIT_STATE_REQUEST, TOKEN, ADD_VOTE, VOTE_ADDED, ADD_QUESTION, QUESTION_ADDED } from '../constants';
 
 let socket;
 
@@ -19,6 +21,10 @@ export function start(store) {
     store.dispatch(voteAdded(vote));
   });
 
+  socket.on(QUESTION_ADDED, question => {
+    store.dispatch(questionAdded(question));
+  });
+
 }
 
 export function socketMiddleware(store) {
@@ -28,6 +34,10 @@ export function socketMiddleware(store) {
 
    if (socket && action.type === ADD_VOTE) {
      socket.emit(ADD_VOTE, action.vote);
+   }
+
+   if (socket && action.type === ADD_QUESTION) {
+     socket.emit(ADD_QUESTION, action.question);
    }
 
    return result;

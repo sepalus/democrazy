@@ -8,7 +8,7 @@ class Results extends React.Component {
 
 	renderVotes() {
 		const length = this.props.votes.length,
-					self = this;
+		self = this;
 
 		let votes = {};
 		for(let i = 0; i < length; i++) {
@@ -28,12 +28,13 @@ class Results extends React.Component {
 
 	render() {
 		return (<div>
-							<div className="row results-container">
-								<div className="column small-12 title-container">
-									<span className="heading">Results</span>
-									<h2>{ this.props.question }</h2>
-								</div>
-							</div>
+					<div className="row title-row results-container">
+						<div className="column small-12 title-container">
+							<span className="heading">Results</span>
+							<h2 className="title-question">{ this.props.question }</h2>
+							<h3 className="title-asker"> - { this.props.asker }</h3>
+						</div>
+					</div>
 				      <div className="row">
 								<div className="column small-12 small-centered">
 									<div className="bars-container">
@@ -47,7 +48,8 @@ class Results extends React.Component {
 
 const mapStateToProps = (state)=> {
       return {
-				question: state.question.text,
+				question: state.question.question,
+				asker: state.question.asker,
  				candidates: state.question.candidates,
 				votes: state.question.votes
       }

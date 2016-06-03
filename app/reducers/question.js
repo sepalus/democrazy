@@ -1,10 +1,11 @@
-import { ADD_VOTE, VOTE_ADDED, INIT_STATE, TOKEN} from '../constants';
+import { ADD_VOTE, VOTE_ADDED, QUESTION_ADDED, INIT_STATE, TOKEN} from '../constants';
 
 // This is empty, as data is fetched from the backend
 const initialState = {
-	text: '',
+	question: '',
+	asker: '',
 	candidates: [],
-	votes: []
+	votes: [],
 };
 
 function question(state = initialState, action) {
@@ -14,22 +15,36 @@ function question(state = initialState, action) {
 			if(localStorage) localStorage.setItem(TOKEN, action.token);
 
 			return {
-				text: action.state.text,
+				question: action.state.question,
+				asker: action.state.asker,
 				candidates: action.state.candidates,
 				votes: [].concat(action.state.votes)
 			}
 		case VOTE_ADDED:
 			return {
-				text: state.text,
+				question: state.question,
+				asker: state.asker,
 				candidates: state.candidates,
 				votes: [].concat(state.votes, action.vote)
 			}
 		case ADD_VOTE:
 			return {
-				text: state.text,
+				question: state.question,
+				asker: state.asker,
 				status: 'LOADING',
 				candidates: state.candidates,
 				votes: state.votes
+			}
+		/**case ADD_QUESTION:
+			return {
+			}**/
+		case QUESTION_ADDED:
+			return {
+				question: action.question.question,
+				asker: action.question.asker,
+				candidates: action.question.candidates,
+				votes: []
+	
 			}
 		default:
 			return state;

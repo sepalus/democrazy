@@ -1,9 +1,9 @@
 import { NEW_CANDIDATE, REMOVE_CANDIDATE} from '../constants';
 
-export function newCandidate(candidate) {
+export function newCandidate(candidate, candidates) {
 	return {
 		type: NEW_CANDIDATE,
-		candidate
+		candidate, candidates
     }
 }
 

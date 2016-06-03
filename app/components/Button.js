@@ -13,7 +13,7 @@ class Button extends React.Component {
 	render() {
 		return(
 			<button 
-				className={"nl-button " + this.props.type}
+				className={"nl-button " + (this.props.type ? this.props.type : "")}
 				disabled={this.props.isDisabled}
 				onClick={ this.props.handleClick }>
 		 		{this.props.icon ? <i className={"fa fa-" + this.props.icon}></i> : '' }

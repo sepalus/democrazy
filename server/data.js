@@ -3,7 +3,8 @@
  */
 var data = {
   status: "INITIAL",
-  text: 'What is your favorite yoga position?',
+  question: 'What is your favorite yoga position?',
+  asker: 'Guru',
   candidates: [
     {
       id: 1,

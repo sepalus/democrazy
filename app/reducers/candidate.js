@@ -9,7 +9,7 @@ function candidate(state = initialState, action) {
 	switch (action.type) {
 		case NEW_CANDIDATE:
 			return {
-				newCandidates: [].concat(state.newCandidates, action.candidate),
+				newCandidates: [].concat(action.candidates, action.candidate),
 			}
 		case REMOVE_CANDIDATE:
 			let index = state.newCandidates.indexOf(action.candidate);

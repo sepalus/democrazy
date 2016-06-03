@@ -24,6 +24,12 @@ class CandidateList extends React.Component {
 		this.vote = this.vote.bind(this);
 	}
 
+	componentWillReceiveProps() {
+		if (this.props.newVote) {
+			this.unselecteItem();
+		}	
+	}
+
 	selecteItem(id) {
 		this.setState({
 			selected: id
@@ -79,7 +85,6 @@ class CandidateList extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div className="candidates-container">
 				{this.props.votingEnabled ? this.renderItemsVote() : this.renderItemsCreate()}
@@ -91,7 +96,7 @@ class CandidateList extends React.Component {
 }
 
 const mapStateToProps = (state)=> {
-      return {
+	   return {
 				candidates: state.question.candidates,
 				votes: state.question.votes,
       }
