@@ -1,4 +1,4 @@
-import { ADD_VOTE, VOTE_ADDED, QUESTION_ADDED, INIT_STATE, TOKEN} from '../constants';
+import { ADD_VOTE, VOTE_ADDED,  ADD_QUESTION, QUESTION_ADDED, INIT_STATE, TOKEN} from '../constants';
 
 // This is empty, as data is fetched from the backend
 const initialState = {
@@ -21,6 +21,8 @@ function question(state = initialState, action) {
 				votes: [].concat(action.state.votes)
 			}
 		case VOTE_ADDED:
+
+
 			return {
 				question: state.question,
 				asker: state.asker,
@@ -35,16 +37,21 @@ function question(state = initialState, action) {
 				candidates: state.candidates,
 				votes: state.votes
 			}
-		/**case ADD_QUESTION:
+		case ADD_QUESTION:
 			return {
-			}**/
+				question: action.question.question,
+				asker: action.question.asker,
+				candidates: action.question.candidates,
+				votes: [],
+				status:'LOADING'
+
+			}
 		case QUESTION_ADDED:
 			return {
 				question: action.question.question,
 				asker: action.question.asker,
 				candidates: action.question.candidates,
-				votes: []
-	
+				votes: []	
 			}
 		default:
 			return state;

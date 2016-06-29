@@ -9,7 +9,7 @@ import {addQuestion } from '../actions/question';
 require('./form.scss');
 
 class Form extends React.Component {
-	constructor(props) {
+		constructor(props) {
 		super(props);	
 		this.state = {
 			candidates : [],
@@ -76,9 +76,9 @@ class Form extends React.Component {
 		this.state.valid = isValid;
   	}
 
-	newCandidate() {
+	newCandidate(e) {
+		e.preventDefault();
 		this.setState({idCount:this.state.idCount + 1}, function() {
-			console.log("ID:"+this.state.idCount);
 			let candidate= {id:this.state.idCount, valid:false};
 			this.props.dispatch(newCandidate(candidate, this.state.candidates));
 		})
@@ -89,7 +89,8 @@ class Form extends React.Component {
 		this.props.dispatch(removeCandidate(candidate) );
 	}
 
-  	addCandidates() {
+  	addCandidates(e) {
+  		e.preventDefault();
 	    let question = {
 	      question: this.state.question,
 	      asker: this.state.asker,
