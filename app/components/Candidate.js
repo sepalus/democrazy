@@ -7,7 +7,7 @@ require('./candidate.scss');
 export default class Candidate extends React.Component{
 
 	render() {
-		const { data, chosen, handleSelect, handleUnselect, handleVote, selected, hasVoted } = this.props;
+		const { data, handleSelect, handleUnselect, handleVote, selected, hasVoted} = this.props;
 
 		return(
 			<div className={"candidate " + (selected ? 'selected': '')}

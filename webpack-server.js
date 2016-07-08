@@ -7,7 +7,8 @@ const express = require('express'),
   webpack = require("webpack"),
   webpackMiddleware = require("webpack-dev-middleware"),
   compiler = webpack(webpackconfig),
-  Guid = require('guid');
+  Guid = require('guid'),
+  Joi = require('joi');
 
 const INIT_STATE_REQUEST = require('./app/constants').INIT_STATE_REQUEST,
       INIT_STATE_SUCCESS = require('./app/constants').INIT_STATE_SUCCESS,
@@ -17,7 +18,14 @@ const INIT_STATE_REQUEST = require('./app/constants').INIT_STATE_REQUEST,
       ADD_QUESTION = require('./app/constants').ADD_QUESTION;
       QUESTION_ADDED = require('./app/constants').QUESTION_ADDED;
 
-const Joi = require('joi');
+var data = {
+  status: "INITIAL",
+  question: '',
+  asker: '',
+  candidates: [],
+  votes: []
+};
+
 
 if(!process.env.PROD) {
   app.use(webpackMiddleware(compiler ,{
@@ -33,12 +41,10 @@ if(!process.env.PROD) {
 
 var server = app.listen(port, function () {
   var host = server.address().address;
-
   console.log('Server listening at http://%s:%s', host, port);
 });
 
 const io = require('socket.io').listen(server);
-var data = require('./server/data');
 
 io.on('connection', function(socket){
 
@@ -81,7 +87,6 @@ io.on('connection', function(socket){
         });
       }
       else {
-        //socket.broadcast.emit(VOTE_ADDED, newVote);
       }
     }
   });
@@ -121,8 +126,3 @@ io.on('connection', function(socket){
 });
 
 app.io = io;
-
-var routes = require('./server/routes/index');
-app.use('/', routes);
-
-app.use(express.static('public'));

@@ -1,12 +1,17 @@
-# democrazy
+# Democrazy
 
-Install dependencies with
+Democrazy is a voting app that allows any user to quickly create a vote on any subject. Other users can then vote and the results are updated and displayed in real time.
+
+# Installation
+
+Install:
 >npm install
 
-To run app locally:
->run-local.sh
+# Run
+>npm run start
 
->watch.sh
-
-By default app will run in:
+By default the app will run in:
 >http://localhost:3000
+>>Create vote: /#/create
+>>Vote: /
+>>View results: /#/results

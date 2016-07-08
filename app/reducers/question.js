@@ -11,23 +11,12 @@ const initialState = {
 function question(state = initialState, action) {
 	switch (action.type) {
 		case INIT_STATE:
-
 			if(localStorage) localStorage.setItem(TOKEN, action.token);
-
 			return {
 				question: action.state.question,
 				asker: action.state.asker,
 				candidates: action.state.candidates,
 				votes: [].concat(action.state.votes)
-			}
-		case VOTE_ADDED:
-
-
-			return {
-				question: state.question,
-				asker: state.asker,
-				candidates: state.candidates,
-				votes: [].concat(state.votes, action.vote)
 			}
 		case ADD_VOTE:
 			return {
@@ -36,6 +25,13 @@ function question(state = initialState, action) {
 				status: 'LOADING',
 				candidates: state.candidates,
 				votes: state.votes
+		}
+		case VOTE_ADDED:
+			return {
+				question: state.question,
+				asker: state.asker,
+				candidates: state.candidates,
+				votes: [].concat(state.votes, action.vote)
 			}
 		case ADD_QUESTION:
 			return {
@@ -44,9 +40,8 @@ function question(state = initialState, action) {
 				candidates: action.question.candidates,
 				votes: [],
 				status:'LOADING'
-
 			}
-		case QUESTION_ADDED:
+		case QUESTION_ADDED:								
 			return {
 				question: action.question.question,
 				asker: action.question.asker,

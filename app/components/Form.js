@@ -51,7 +51,7 @@ class Form extends React.Component {
 
   	handleChange(id, valid, name, pitch) {
   		let self = this;
-  	    let index = this.state.candidates.filter(function(candidate, index) {
+  	    this.state.candidates.filter(function(candidate, index) {
         	if (candidate.id == id) {
         		let newCandidate = candidate;
         		newCandidate.valid = valid;
@@ -69,7 +69,7 @@ class Form extends React.Component {
   	checkValidity(candidates) {
   		let isValid = true;
 		candidates.forEach(function(candidate){
-			if(candidate.valid == false) {
+			if(!candidate.valid) {
 				isValid = false;
 			}
 		});

@@ -4,7 +4,7 @@ import { questionAdded } from '../actions/question';
 import { initState } from '../actions/init';
 import io from 'socket.io-client';
 
-import { INIT_STATE, INIT_STATE_SUCCESS, INIT_STATE_REQUEST, TOKEN, ADD_VOTE, VOTE_ADDED, ADD_QUESTION, QUESTION_ADDED } from '../constants';
+import {INIT_STATE_SUCCESS, INIT_STATE_REQUEST, TOKEN, ADD_VOTE, VOTE_ADDED, ADD_QUESTION, QUESTION_ADDED } from '../constants';
 
 let socket;
 
